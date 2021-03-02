@@ -1,17 +1,20 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
 import Adafruit_BBIO.GPIO as GPIO
 import time
 import os
 
+IR = "P9_19"
+
 if __name__ == "__main__":
-   GPIO.setup("P9_19",GPIO.IN)
+   GPIO.setup(IR, GPIO.IN)
 
    while True:
       try:
-         if GPIO.input("P9_19") == GPIO.LOW:
-             print "found something"
+         if GPIO.input(IR) == GPIO.LOW:
+             print ("found something")
          else:
-            print "nothing"
+            print ("nothing")
          time.sleep(0.5)
       except IOError:
-         print "Error"
+         print ("Error")
